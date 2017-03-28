@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
 
-    <form action="welcome/shorten_url" method="post">
+    <%= form_for ShortUrl.new, url: ({controller: "welcome", action: "shorten_url"}) do |f| %>
       <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
@@ -13,12 +13,12 @@
         <div class="col-lg-4">
           <div class="input-group">
             <div class="input-group-btn">
-              <input type="text" class="form-control" name="url" placeholder="type your link here">
-              <button type="submit" class="btn btn-success">OK </button>
+              <%= f.text_field :url ,placeholder: "type your link here", class: "form-control" %>
+              <%= f.submit "OK", class: "btn btn-success" %>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>

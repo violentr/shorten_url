@@ -1,7 +1,24 @@
-<h1>Shorten your link below</h1>
+<div class="container">
+  <div class="jumbotron">
 
-<form action="welcome/shorten_url" method="post">
-<div class="input-group">
-  <input type="text" class="form-control" name="url" placeholder="your link">
-  <button type="submit" class="btn btn-default">OK </button>
+    <form action="welcome/shorten_url" method="post">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <h4 class="center" >Short your link </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <input type="text" class="form-control" name="url" placeholder="type your link here">
+              <button type="submit" class="btn btn-success">OK </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,32 +1,32 @@
 <div class="container">
   <div class="jumbotron">
-    <%= form_for ShortUrl.new, url: ({controller: "welcome", action: "shorten_url"}) do |f| %>
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-          <h4 class="center" >Short your link </h4>
-        </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <h4 class="center" >Short your link </h4>
       </div>
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <%= f.text_field :url ,placeholder: "type your link here", class: "form-control" %>
-              <%= f.submit "OK", class: "btn btn-success" %>
-            </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <input type="text" name="url" id="url" placeholder="type your link here" class="form-control">
+            <button class="btn btn-success"> OK </button>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
    <% if @short_urls %>
-     <% @short_urls.each do |url|%>
-      <div class="row">
+     <div class="row" id="results">
         <div class="col-lg-4">
-          <%= link_to url.short_url, controller: "welcome", action: "index", id: url.short_url %>
+          <ul>
+            <% @short_urls.each do |url|%>
+              <li><%= link_to url.short_url, controller: "welcome", action: "index", id: url.short_url %></li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-    <% end %>
+     </div>
   <% end %>
 </div>

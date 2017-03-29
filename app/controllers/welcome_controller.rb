@@ -10,8 +10,7 @@ class WelcomeController < ApplicationController
 
   def shorten_url
     random = SecureRandom.hex.slice(0..5).upcase
-    url = params[:short_url][:url] || ""
-    ShortUrl.create(short_url: random, original_url: url)
-    redirect_to welcome_url
+    short_url = ShortUrl.create(short_url: random, original_url: params[:url] )
+    render json: short_url
   end
 end

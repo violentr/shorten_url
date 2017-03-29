@@ -1,6 +1,5 @@
 <div class="container">
   <div class="jumbotron">
-
     <%= form_for ShortUrl.new, url: ({controller: "welcome", action: "shorten_url"}) do |f| %>
       <div class="row">
         <div class="col-lg-4"></div>
@@ -21,4 +20,13 @@
       </div>
     <% end %>
   </div>
+   <% if @short_urls %>
+     <% @short_urls.each do |url|%>
+      <div class="row">
+        <div class="col-lg-4">
+          <%= link_to url.short_url, controller: "welcome", action: "index", id: url.short_url %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

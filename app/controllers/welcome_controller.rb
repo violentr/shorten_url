@@ -3,8 +3,8 @@ class WelcomeController < ApplicationController
   def index
     @short_urls = ShortUrl.all
     if params[:id]
-    original_url = ShortUrl.find_by(short_url: params[:id]).original_url
-    redirect_to "http://#{original_url}", :status => 301
+      original_url = ShortUrl.find_by(short_url: params[:id]).original_url
+      redirect_to "http://#{original_url}", :status => 301
     end
   end
 
